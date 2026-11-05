@@ -24,6 +24,7 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		python = { "black" },
 		html = { "djlint" },
+		typst = { "typstyle" },
 	},
 })
 require("outline").setup({})
