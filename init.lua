@@ -27,6 +27,9 @@ require("conform").setup({
 		typst = { "typstyle" },
 	},
 })
+require("toggle").setup({
+	-- Optional: Override default settings here
+})
 require("outline").setup({})
 require("config.keybinds")
 
@@ -45,6 +48,4 @@ require("lualine").setup({
 			end,
 		},
 	},
-
 })
-

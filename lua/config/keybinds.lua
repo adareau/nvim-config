@@ -53,3 +53,14 @@ vim.keymap.set("n", "<leader>tu", "<cmd>PytestUI<CR>")
 vim.keymap.set("n", "<leader>le", function()
 	vim.diagnostic.open_float({ focusable = true })
 end, { desc = "Expand an Error into a float" })
+
+-- toggle
+-- Forward toggle
+vim.keymap.set("n", "fd", function()
+  require("toggle").toggle()
+end, { desc = "Toggle word (Forward)" })
+
+-- Backward toggle (pass `true` to reverse direction)
+vim.keymap.set("n", "gf", function()
+  require("toggle").toggle(true)
+end, { desc = "Toggle word (Backward)" })
