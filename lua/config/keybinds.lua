@@ -1,6 +1,7 @@
 local conform = require("conform")
 
 vim.g.mapleader = " " -- this maps the leader key to the spacebar
+
 -- Oil
 vim.keymap.set("n", "<leader>cd", "<cmd>Oil<CR>", { desc = "Open Oil file explorer" })
 vim.keymap.set("n", "<leader>Cd", "<cmd>Oil --float<CR>", { desc = "Open Oil file explorer in floating window" })
@@ -8,13 +9,20 @@ vim.keymap.set("n", "<leader>Cd", "<cmd>Oil --float<CR>", { desc = "Open Oil fil
 -- Conform
 vim.keymap.set("n", "<leader>fm", function()
 	conform.format()
-end)
+end, { desc = "Format code with conform" })
+
+-- Save all, save session and quit
+vim.keymap.set("n", "<leader>qq", function()
+	vim.cmd("silent! wa")
+	vim.cmd("mksession!")
+	vim.cmd("qa")
+end, { desc = "Write all buffers, save session and quit" })
 
 -- Python execute
 vim.keymap.set("n", "<leader>p", function()
 	vim.cmd("write")
 	vim.cmd("!python3 %")
-end)
+end, { desc = "Write buffer and execute as Python code" })
 
 -- faster pane navigation
 vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>")
@@ -47,7 +55,7 @@ vim.keymap.set({ "i", "s" }, "<C-E>", function()
 end, { silent = true })
 
 -- pytest
-vim.keymap.set("n", "<leader>tu", "<cmd>PytestUI<CR>")
+vim.keymap.set("n", "<leader>tu", "<cmd>PytestUI<CR>", { desc = "Open PytestUI" })
 
 -- lsp
 vim.keymap.set("n", "<leader>le", function()
@@ -57,10 +65,10 @@ end, { desc = "Expand an Error into a float" })
 -- toggle
 -- Forward toggle
 vim.keymap.set("n", "fd", function()
-  require("toggle").toggle()
+	require("toggle").toggle()
 end, { desc = "Toggle word (Forward)" })
 
 -- Backward toggle (pass `true` to reverse direction)
 vim.keymap.set("n", "gf", function()
-  require("toggle").toggle(true)
+	require("toggle").toggle(true)
 end, { desc = "Toggle word (Backward)" })
