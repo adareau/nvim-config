@@ -1,74 +1,86 @@
 local conform = require("conform")
 
+-- Define leader key
 vim.g.mapleader = " " -- this maps the leader key to the spacebar
 
+-- Shorthand
+local map = vim.keymap.set
+
+-- Confort 
+-- https://www.stephane-robert.info/docs/admin-serveurs/linux/references-complementaires/neovim/#configurer-les-raccourcis
+map("n", "<leader>h", "<cmd>nohlsearch<cr>", { desc = "Remove search highlight" })
+map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Remove search highlight" })
+map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selection downwards" })
+map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move selection upwards" })
+map("n", "J", "mzJ`z", { desc = "Join lines witout moving cursor" })
+
 -- Oil
-vim.keymap.set("n", "<leader>cd", "<cmd>Oil<CR>", { desc = "Open Oil file explorer" })
-vim.keymap.set("n", "<leader>Cd", "<cmd>Oil --float<CR>", { desc = "Open Oil file explorer in floating window" })
+map("n", "<leader>cd", "<cmd>Oil<CR>", { desc = "Open Oil file explorer" })
+map("n", "<leader>Cd", "<cmd>Oil --float<CR>", { desc = "Open Oil file explorer in floating window" })
 
 -- Conform
-vim.keymap.set("n", "<leader>fm", function()
+map("n", "<leader>fm", function()
 	conform.format()
 end, { desc = "Format code with conform" })
 
 -- Save all, save session and quit
-vim.keymap.set("n", "<leader>qq", function()
+map("n", "<leader>qq", function()
 	vim.cmd("silent! wa")
 	vim.cmd("mksession!")
 	vim.cmd("qa")
 end, { desc = "Write all buffers, save session and quit" })
 
 -- Python execute
-vim.keymap.set("n", "<leader>p", function()
+map("n", "<leader>p", function()
 	vim.cmd("write")
 	vim.cmd("!python3 %")
 end, { desc = "Write buffer and execute as Python code" })
 
 -- faster pane navigation
-vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>")
-vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>")
-vim.keymap.set("n", "<C-p>", "<cmd>wincmd p<CR>")
+map("n", "<C-k>", "<cmd>wincmd k<CR>")
+map("n", "<C-j>", "<cmd>wincmd j<CR>")
+map("n", "<C-l>", "<cmd>wincmd l<CR>")
+map("n", "<C-h>", "<cmd>wincmd h<CR>")
+map("n", "<C-p>", "<cmd>wincmd p<CR>")
 
 -- quick escape
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "kj", "<Esc>")
+map("i", "jk", "<Esc>")
+map("i", "kj", "<Esc>")
 
 -- luasnip
 local ls = require("luasnip")
 
-vim.keymap.set({ "i" }, "<C-K>", function()
+map({ "i" }, "<C-K>", function()
 	ls.expand()
 end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-L>", function()
+map({ "i", "s" }, "<C-L>", function()
 	ls.jump(1)
 end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-J>", function()
+map({ "i", "s" }, "<C-J>", function()
 	ls.jump(-1)
 end, { silent = true })
 
-vim.keymap.set({ "i", "s" }, "<C-E>", function()
+map({ "i", "s" }, "<C-E>", function()
 	if ls.choice_active() then
 		ls.change_choice(1)
 	end
 end, { silent = true })
 
 -- pytest
-vim.keymap.set("n", "<leader>tu", "<cmd>PytestUI<CR>", { desc = "Open PytestUI" })
+map("n", "<leader>tu", "<cmd>PytestUI<CR>", { desc = "Open PytestUI" })
 
 -- lsp
-vim.keymap.set("n", "<leader>le", function()
+map("n", "<leader>le", function()
 	vim.diagnostic.open_float({ focusable = true })
 end, { desc = "Expand an Error into a float" })
 
 -- toggle
 -- Forward toggle
-vim.keymap.set("n", "fd", function()
+map("n", "fd", function()
 	require("toggle").toggle()
 end, { desc = "Toggle word (Forward)" })
 
 -- Backward toggle (pass `true` to reverse direction)
-vim.keymap.set("n", "gf", function()
+map("n", "gf", function()
 	require("toggle").toggle(true)
 end, { desc = "Toggle word (Backward)" })
