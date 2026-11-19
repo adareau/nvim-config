@@ -19,7 +19,8 @@ return {
           "cssls", -- css LSP
           "emmet_ls", -- emmet LSP
           "jsonls", -- json LSP
-          "pyright", -- json LSP
+          "pyright", -- python LSP
+          "marksman", -- markdown LSP
         },
         automatic_installation = true,
       })
