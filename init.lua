@@ -7,9 +7,6 @@ vim.opt.termguicolors = true
 
 require("config.options")
 require("config.lazy")
-require("lazy").setup({
-	{ "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
-})
 require("oil").setup({
 	view_options = {
 		show_hidden = true,

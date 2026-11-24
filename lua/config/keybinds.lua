@@ -8,7 +8,6 @@ local map = vim.keymap.set
 
 -- Confort 
 -- https://www.stephane-robert.info/docs/admin-serveurs/linux/references-complementaires/neovim/#configurer-les-raccourcis
-map("n", "<leader>h", "<cmd>nohlsearch<cr>", { desc = "Remove search highlight" })
 map("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Remove search highlight" })
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selection downwards" })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move selection upwards" })

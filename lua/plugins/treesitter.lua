@@ -7,7 +7,6 @@ return {
     configs.setup({
       highlight = { enable = true },
       indent = { enable = true },
-      autoage = { enable = true },
       ensure_installed = {
         "lua", "ruby", "tsx", "typescript", "vim", "html", "javascript", "query", "vimdoc", "python" -- add whatever coding language that you use in your day-to-day
       },

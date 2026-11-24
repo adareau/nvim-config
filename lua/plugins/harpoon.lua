@@ -46,11 +46,11 @@ return {
 		vim.keymap.set("n", "<C-e>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end) -- toggle the harpoon quick menu UI
-		vim.keymap.set("n", "<C-n>", function()
+		vim.keymap.set("n", "<leader>hn", function()
 			harpoon:list():next()
-		end) -- jump to the next harpooned file
-		vim.keymap.set("n", "<C-p>", function()
+		end, { desc = "Harpoon : next file" }) -- jump to the next harpooned file
+		vim.keymap.set("n", "<leader>hp", function()
 			harpoon:list():prev()
-		end) -- jump to the previous harpooned file
+		end, { desc = "Harpoon : previous file" }) -- jump to the previous harpooned file
 	end,
 }
