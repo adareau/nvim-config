@@ -76,11 +76,11 @@ end, { desc = "Expand an Error into a float" })
 
 -- toggle
 -- Forward toggle
-map("n", "fd", function()
+map("n", "gs", function()
 	require("toggle").toggle()
 end, { desc = "Toggle word (Forward)" })
 
 -- Backward toggle (pass `true` to reverse direction)
-map("n", "gf", function()
+map("n", "gS", function()
 	require("toggle").toggle(true)
 end, { desc = "Toggle word (Backward)" })
