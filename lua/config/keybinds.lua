@@ -1,8 +1,5 @@
 local conform = require("conform")
 
--- Define leader key
-vim.g.mapleader = " " -- this maps the leader key to the spacebar
-
 -- Shorthand
 local map = vim.keymap.set
 

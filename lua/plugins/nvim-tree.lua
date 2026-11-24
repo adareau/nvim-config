@@ -6,10 +6,6 @@ return {
     "nvim-tree/nvim-web-devicons", -- Optionnel mais fortement recommandé pour les icônes
   },
   config = function()
-    -- Recommandé par la documentation officielle d'nvim-tree
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
     -- Configuration de nvim-tree
     require("nvim-tree").setup({
       sort = {

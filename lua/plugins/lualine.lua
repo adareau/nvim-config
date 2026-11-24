@@ -5,7 +5,16 @@ return {
 			"nvim-tree/nvim-web-devicons", -- imports icon dependency
 		},
 		opts = {
-			--  theme = "catppuccin-frappe", -- sets the lualine theme to tokyodark
+			options = {
+				globalstatus = true,
+			},
+			sections = {
+				lualine_x = {
+					function()
+						return os.date("⟨ %H:%M")
+					end,
+				},
+			},
 		},
 	},
 }

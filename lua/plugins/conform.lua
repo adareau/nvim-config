@@ -1,4 +1,12 @@
 return {
-  'stevearc/conform.nvim',
-  opts = {},
+	"stevearc/conform.nvim",
+	opts = {
+		formatters_by_ft = {
+			lua = { "stylua" },
+			-- Conform will run multiple formatters sequentially
+			python = { "black" },
+			html = { "djlint" },
+			typst = { "typstyle" },
+		},
+	},
 }

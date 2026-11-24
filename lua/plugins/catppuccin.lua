@@ -18,8 +18,8 @@ return {
           mini = { enabled = true },
         },
       })
-      -- -- Load the colorscheme
-      -- vim.cmd.colorscheme("catppuccin")
+      -- Load the colorscheme
+      vim.cmd.colorscheme("catppuccin-frappe")
     end,
   }
 }
