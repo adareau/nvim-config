@@ -41,6 +41,9 @@ return {
 				},
 			})
 
+			-- Typst LSP: tinymist is installed outside Mason (~/.local/bin), so enable it directly
+			vim.lsp.enable("tinymist")
+
 			-- Buffer-local keymaps for every server that attaches.
 			-- Built-in defaults (Neovim 0.11+) are kept: K = hover, grr = references,
 			-- gri = implementation, grn = rename, gra = code action, grt = type definition.
